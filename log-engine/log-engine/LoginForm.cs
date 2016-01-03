@@ -20,6 +20,16 @@ namespace log_engine
 
         private void loginButton_Click(object sender, EventArgs e)
         {
+            AttemptLogin();         
+        }
+
+        private void passwordTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AttemptLogin();
+        }
+
+        private void AttemptLogin()
+        {
             string username = usernameTextBox.Text;
             string password = passwordTextBox.Text;
             if (login.CheckLogin(username, password))
@@ -27,7 +37,8 @@ namespace log_engine
                 descriptionLabel.Text = "Login successful!";
 
             }
-            else descriptionLabel.Text = "Incorrect username or password, please try again.";                        
+            else descriptionLabel.Text = "Incorrect username or password, please try again.";
         }
+
     }
 }
