@@ -12,37 +12,42 @@ namespace log_engine
         string[] passwords;
         int numOfUsers;
         int numOfPasswords;
+
+
         public Login() //Constructor
-        {
+        {              //This initializes the data members and calls the 'ReadData' function to read itself in from a file.
+            numOfUsers = 1;
+            numOfPasswords = 1;
             users = new string[5];
             passwords = new string[5];
             this.ReadData();
         }
 
+        //Purpose: To check the login information against a database of usernames and passwords
+        //Parameters: two strings, one for the username, and one for the password
+        //Returns: a booleen
         public bool CheckLogin(string inuser, string inpassword)
         {
-            for(int i = 0; i < numOfUsers; i++)
+            for(int i = 0; i < numOfUsers; i++) //as many times as there are data stored in the next element of the array
             {
-                if (inuser == users[i])
+                if (inuser == users[i]) //check the given username against the current selected username
                 {
-                    if (inpassword == passwords[i])
+                    if (inpassword == passwords[i]) //Check the password given against the current selected password
                     {
-                        return true;
+                        return true; //username and password match up
                     }
                 }
             }
-            return false;
+            return false; //any other case
         }
 
-        public void ReadData()
-        {
+        public void ReadData() // this will eventually read in data from a file.
+        {                      // for now it just creates a test case and stores it in the array.
             users[0] = "admin";
             passwords[0] = "password";
-            numOfUsers = 1;
-            numOfPasswords = 1;
         }
 
-        public void WriteData()
+        public void WriteData() // this will save the data to a .txt file.
         {
 
         }
