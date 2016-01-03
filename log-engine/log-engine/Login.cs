@@ -11,13 +11,11 @@ namespace log_engine
         string[] users;
         string[] passwords;
         int numOfUsers;
-        int numOfPasswords;
 
 
         public Login() //Constructor
         {              //This initializes the data members and calls the 'ReadData' function to read itself in from a file.
             numOfUsers = 1;
-            numOfPasswords = 1;
             users = new string[5];
             passwords = new string[5];
             this.ReadData();
@@ -41,15 +39,17 @@ namespace log_engine
             return false; //any other case
         }
 
-        public void ReadData() // this will eventually read in data from a file.
-        {                      // for now it just creates a test case and stores it in the array.
+        public void ReadData() // this will eventually read in data from a file. For now it just creates a test case and stores it in the array.
+        {                      
+            //StreamReader sr = new StreamReader("C:\\Sample.txt");
             users[0] = "admin";
             passwords[0] = "password";
         }
 
         public void WriteData() // this will save the data to a .txt file.
         {
-
+            //StreamWriter sw = new StreamWriter("C:\\Test.txt", false);
+            //sw.WriteLine("Hello World!!");
         }
     }
 }

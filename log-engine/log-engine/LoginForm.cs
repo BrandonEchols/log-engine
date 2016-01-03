@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace log_engine
 {
-    public partial class Form1 : Form
+    public partial class LoginForm : Form
     {
         Login login = new Login();
-        public Form1()
+        public LoginForm()
         {
             InitializeComponent();            
         }
@@ -25,8 +25,9 @@ namespace log_engine
             if (login.CheckLogin(username, password))
             {
                 descriptionLabel.Text = "Login successful!";
+
             }
-            else descriptionLabel.Text = "Wrong answer...";                        
+            else descriptionLabel.Text = "Incorrect username or password, please try again.";                        
         }
     }
 }
